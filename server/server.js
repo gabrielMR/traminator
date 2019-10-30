@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(require('./routes/index'));
 
 //configurar la bd
-mongoose.connect('mongodb://localhost:27017/cafe', { useNewUrlParser: true }, (err, res) => {
+mongoose.connect('mongodb://localhost:27017/traminator', { useNewUrlParser: true }, (err, res) => {
 
     if (err) throw err;
 

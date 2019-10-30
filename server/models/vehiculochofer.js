@@ -5,6 +5,10 @@ let Schema = mongoose.Schema;
 
 
 let vehiculochoferSchema = new Schema({
+    fecha: {
+        type: Date,
+        default: Date.now
+    },
     placa: {
         type: String,
         required: [true, 'La placa es necesaria']
