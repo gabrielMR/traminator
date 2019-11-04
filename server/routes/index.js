@@ -4,4 +4,7 @@ const app = express();
 app.use(require('./usuario'));
 app.use(require('./login'));
 app.use(require('./vehiculo'));
+app.use(require('./denuncia'));
+app.use(require('./linea'));
+app.use(require('./recorrido'));
 module.exports = app;
