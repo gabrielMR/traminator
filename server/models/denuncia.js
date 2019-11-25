@@ -12,9 +12,17 @@ let denunciaSchema = new Schema({
         type: String,
         required: [true, 'La placa es requerida']
     },
-    idChofer: {
+    motivo: {
         type: String,
-        required: [true, 'El id Chofer es necesario']
+        required: [true, 'El motivo es requerido']
+    },
+    detalle: {
+        type: String,
+        required: [true, 'El detalle es requerido']
+    },
+    nombre: {
+        type: String,
+        required: [true, 'El nombre del denunciante es requerido']
     }
 });
 

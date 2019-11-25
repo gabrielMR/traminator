@@ -3,7 +3,7 @@ const app = express();
 const Denuncia = require('../models/denuncia');
 const bcrypt = require('bcrypt');
 const _ = require('underscore');
-const { verificaToken } = require('../middlewares/autenticacion')
+const { verificaToken, verificaAdmin_role } = require('../middlewares/autenticacion')
 
 app.get('/denuncia', function(req, res) {
     let desde = req.query.desde || 0;
@@ -12,7 +12,7 @@ app.get('/denuncia', function(req, res) {
     let limite = req.query.limite || 10;
     limite = Number(limite);
 
-    Denuncia.find({}, 'fecha placa idChofer')
+    Denuncia.find({}, 'fecha placa motivo detalle nombre')
         .skip(desde)
         .limit(limite)
         .exec((err, denuncias) => {
@@ -41,7 +41,9 @@ app.post('/denuncia', function(req, res) {
     let denuncia = new Denuncia({
         fecha: body.fecha,
         placa: body.placa,
-        idChofer: body.idChofer
+        motivo: body.motivo,
+        detalle: body.detalle,
+        nombre: body.nombre
     });
 
     denuncia.save((err, denunciaDB) => {

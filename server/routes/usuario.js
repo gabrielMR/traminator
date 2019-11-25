@@ -3,7 +3,8 @@ const app = express();
 const Usuario = require('../models/usuario');
 const bcrypt = require('bcrypt');
 const _ = require('underscore');
-const { verificaToken } = require('../middlewares/autenticacion')
+const { verificaToken, verificaAdmin_role } = require('../middlewares/autenticacion')
+    //app.get('/usuario', [verificaToken,verificaAdmin_role ], function(req, res) {
 
 app.get('/usuario', verificaToken, function(req, res) {
     //app.get('/usuario', function(req, res) {
