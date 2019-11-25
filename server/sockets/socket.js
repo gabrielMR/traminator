@@ -21,8 +21,10 @@ io.on('connection', (client) => {
 
         console.log(data);
         // esto sirve para emitir a todos los usuarios
-        client.broadcast.emit('enviarMensaje', data);
+        let enJson = JSON.parse(data);
 
+        //client.broadcast.emit('enviarMensaje', data);
+        client.broadcast.emit('enviarMensaje', enJson);
 
         // if (mensaje.usuario) {
         //     callback({
@@ -43,6 +45,7 @@ io.on('connection', (client) => {
     client.on('recibirCoordenadas', (data, callback) => {
 
         console.log(data);
+        //let enJson = JSON.parse(data);
         // esto sirve para emitir a todos los usuarios
         client.broadcast.emit('recibirCoordenadas', data);
 
