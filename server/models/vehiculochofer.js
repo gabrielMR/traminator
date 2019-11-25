@@ -24,6 +24,10 @@ let vehiculochoferSchema = new Schema({
     idLinea: {
         type: String,
         required: false
+    },
+    idChofer: {
+        type: String,
+        required: false
     }
 });
 
