@@ -29,6 +29,6 @@ let urlDB;
 if (process.env.NODE_ENV === 'dev') {
     urlDB = 'mongodb://localhost:27017/traminator';
 } else {
-    urlDB = 'mongodb+srv://gamax:iGPtf1mfGhvyZR0c@cluster0-yzvfc.mongodb.net/traminator';
+    urlDB = process.env.MONGO_URI;
 }
 process.env.URLDB = urlDB;
